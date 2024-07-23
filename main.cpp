@@ -150,7 +150,7 @@ public:
     void printTable(const std::vector<std::vector<long long>> &results, const std::vector<std::string> &names) {
         cout << setw(15) << "Algorithm" << " | ";
         for (size_t i = 0; i < results[0].size(); ++i) {
-            cout << setw(10) << "Run " << i + 1 << " | ";
+            cout << setw(10) << "Run " + to_string(i + 1) << " | ";
         }
         cout << endl;
 
@@ -176,16 +176,22 @@ int main() {
     std::vector<std::string> algorithmNames = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort", "Intro Sort", "Merge Sort", "Stable Sort"};
 
     std::cout << "Integers sorting:" << std::endl;
-    for (int i = 0; i < 15; ++i) {
+    std::cout << "Sorting 41 integers 10 times" << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    for (int i = 1; i < 11; ++i) {
         s.measureSortingTimes(arr, intResults);
     }
     s.printTable(intResults, algorithmNames);
+    std::cout << "--------------------------------" << std::endl;
 
     std::cout << "Strings sorting:" << std::endl;
-    for (int i = 0; i < 15; ++i) {
+    std::cout << "Sorting 17 strings 10 times" << std::endl;
+    std::cout << "--------------------------------" << std::endl;
+    for (int i = 1; i < 11; ++i) {
         s2.measureSortingTimes(arr2, stringResults);
     }
     s2.printTable(stringResults, algorithmNames);
+    std::cout << "--------------------------------" << std::endl;
 
     return 0;
 }
