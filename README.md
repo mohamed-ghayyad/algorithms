@@ -2,6 +2,7 @@
 Algorithms with C++
 
 # Output example:
+
 Integers sorting:
 Starting Time Analysis of different algo:
 Bubble Sort: 11 microseconds
