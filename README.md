@@ -24,14 +24,14 @@ This C++ application provides implementations of various sorting algorithms and 
 
 ```sh
 git clone https://github.com/yourusername/algorithms.git
-cd algorithms
+```cd algorithms
 
 ### Compile the Code
 Use a C++ compiler like g++:
 
 ```sh
 g++ -std=c++17 -o SortAlgorithm main.cpp
-
+```
 ### Author
 Mohamed Gamal
 Feel free to reach out with any questions or suggestions!
