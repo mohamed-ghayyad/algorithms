@@ -32,6 +32,11 @@ Use a C++ compiler like g++:
 ```sh
 g++ -std=c++17 -o SortAlgorithm main.cpp
 ```
+
+### Screenshot
+
+![Screenshot of sorting algorithm](https://github.com/mohamed-ghayyad/algorithms/blob/main/sorting_algorithms.PNG?raw=true)
+
 ### Author
 Mohamed Gamal
 
