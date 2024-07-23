@@ -1,96 +1,9 @@
-
-/* Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.
-* The pass through the list is repeated until the list is sorted. The algorithm, which is a comparison sort, is named for the way smaller elements "bubble" to the top of the list.
-* Although the algorithm is simple, it is too slow and impractical for most problems even when compared to insertion sort. It can be practical if the input is usually in sort order but may occasionally have some out-of-order elements nearly in position.
-* Time Complexity: O(n^2) where n is the number of elements in the array.
-* Space Complexity: O(1)
-* Stable: Yes
-* In-place: Yes
-* Online: Yes
-* Advantages: Simple, easy to implement, and can be used for small data sets.
-* Disadvantages: Very slow and inefficient for large data sets.
-* Applications: Bubble sort is used in computer graphics to detect and remove hidden surfaces in 3D objects.
-* It is also used in the card game Bridge to rank players according to their skill level.
-* It is also used in the game of billiards to rank players according to their skill level.
-* It is also used in the game of chess to rank players according to their skill level.
-* Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure to sort elements. It divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region.
-* The heap sort algorithm involves preparing the list by first turning it into a max heap. The algorithm then repeatedly swaps the first value of the list with the last value, decreasing the range of values considered in the heap operation by one, and sifting the new first value into its position in the heap.
-* This repeats until the range of considered values is one value in length.
-* The steps are:
-* 1. Create a Heap from the input data.
-* 2. At this point, the largest item is stored at the root of the heap. Replace it with the last item of the heap followed by reducing the size of heap by 1. Finally, heapify the root of the tree.
-* 3. Repeat step 2 while the size of the heap is greater than 1.
-* Time Complexity: O(n log n) where n is the number of elements in the array.
-* Space Complexity: O(1)
-* Stable: No
-* In-place: Yes
-* Online: No
-* Advantages: It is an in-place algorithm and has a time complexity of O(n log n).
-* Disadvantages: It is not a stable algorithm and has a space complexity of O(1).
-* Applications: Heap sort is used in operating systems to allocate memory blocks of different sizes.
-* It is also used in network routing algorithms to find the shortest path between two nodes.
-* It is also used in the game of chess to rank players according to their skill level.
-* It is also used in the game of billiards to rank players according to their skill level.
-* Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part.
-* Time Complexity: O(n^2) where n is the number of elements in the array.
-* Space Complexity: O(1)
-* Stable: Yes
-* In-place: Yes
-* Online: Yes
-* Advantages: Simple, efficient for small data sets, and adaptive.
-* Disadvantages: Inefficient for large data sets.
-* Applications: Insertion sort is used in the card game Bridge to rank players according to their skill level.
-* It is also used in the game of chess to rank players according to their skill level.
-* It is also used in the game of billiards to rank players according to their skill level.
-* It is also used in computer graphics to detect and remove hidden surfaces in 3D objects.
-* Merge Sort is a divide and conquer algorithm that was invented by John von Neumann in 1945. It divides input array in two halves, calls itself for the two halves and then merges the two sorted halves.
-* The merge() function is used for merging two halves. The merge(arr, l, m, r) is a key process that assumes that arr[l..m] and arr[m+1..r] are sorted and merges the two sorted sub-arrays into one.
-* Time Complexity: O(n log n) where n is the number of elements in the array.
-* Space Complexity: O(n)
-* Stable: Yes
-* In-place: No
-* Online: No
-* Advantages: Merge sort is a stable sort, which means it retains the relative order of equal elements.
-* Disadvantages: Merge sort requires additional memory space of O(n) for the temporary array.
-* Applications: Merge sort is used in network routing algorithms to find the shortest path between two nodes.
-* It is also used in the game of chess to rank players according to their skill level.
-* It is also used in the game of billiards to rank players according to their skill level.
-* It is also used in computer graphics to detect and remove hidden surfaces in 3D objects.
-* Selection sort is an in-place comparison sorting algorithm that divides the input list into two parts: a sorted sublist of items that is built up from left to right at the front (left) of the list and a sublist of the remaining unsorted items that occupy the rest of the list.
-* Initially, the sorted sublist is empty and the unsorted sublist is the entire input list. The algorithm proceeds by finding the smallest (or largest, depending on sorting order) element in the unsorted sublist, exchanging (swapping) it with the leftmost unsorted element (putting it in sorted order), and moving the sublist boundaries one element to the right.
-* Time Complexity: O(n^2) where n is the number of elements in the array.
-* Space Complexity: O(1)
-* Stable: No
-* In-place: Yes
-* Online: No
-* Advantages: Selection sort is simple and easy to implement.
-* Disadvantages: Selection sort is inefficient on large lists and generally performs worse than the similar insertion sort.
-* Applications: Selection sort is used in the card game Bridge to rank players according to their skill level.
-* It is also used in the game of chess to rank players according to their skill level.
-* It is also used in the game of billiards to rank players according to their skill level.
-* It is also used in computer graphics to detect and remove hidden surfaces in 3D objects.
-* Intro Sort is a hybrid sorting algorithm that provides both fast average performance and optimal worst-case performance. It begins with quicksort and switches to heapsort when the recursion depth exceeds a level based on the number of elements being sorted.
-* Time Complexity: O(n log n) where n is the number of elements in the array.
-* Space Complexity: O(log n)
-* Stable: No
-* In-place: Yes
-* Online: No
-* Advantages: Intro sort is a hybrid sorting algorithm that provides both fast average performance and optimal worst-case performance.
-* Disadvantages: Intro sort requires additional memory space of O(log n) for the recursion stack.
-* Applications: Intro sort is used in network routing algorithms to find the shortest path between two nodes.
-* It is also used in the card game Bridge to rank players according to their skill level.
-* It is also used in the game of chess to rank players according to their skill level.
-* It is also used in the game of billiards to rank players according to their skill level.
-* It is also used in computer graphics to detect and remove hidden surfaces in 3D objects.
-* Programming Language: C++
-* Software Engineer: Mohamed Jamal
-* Date: 7/23/2024
-*/
-
 #include <iostream>
 #include <deque>
 #include <algorithm>
 #include <chrono>
+#include <vector>
+#include <iomanip>
 
 using namespace std;
 using namespace chrono;
@@ -98,7 +11,7 @@ using namespace chrono;
 template <typename T>
 class SortAlgorithm {
 public:
-    auto bubbleSort(std::deque<T>& arr) {
+    auto bubbleSort(std::deque<T> &arr) {
         auto begin = high_resolution_clock::now();
         for (size_t i = 0; i < arr.size(); ++i) {
             for (size_t j = 0; j < arr.size() - i - 1; ++j) {
@@ -108,17 +21,17 @@ public:
             }
         }
         auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
+        return duration_cast<microseconds>(end - begin).count();
     }
-    auto stableSort(std::deque<T>& arr) {
+
+    auto stableSort(std::deque<T> &arr) {
         auto begin = high_resolution_clock::now();
         std::stable_sort(arr.begin(), arr.end());
         auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
+        return duration_cast<microseconds>(end - begin).count();
     }
-    auto selectionSort(std::deque<T>& arr) {
+
+    auto selectionSort(std::deque<T> &arr) {
         auto begin = high_resolution_clock::now();
         for (size_t i = 0; i < arr.size() - 1; ++i) {
             size_t min = i;
@@ -130,11 +43,10 @@ public:
             std::swap(arr[i], arr[min]);
         }
         auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
+        return duration_cast<microseconds>(end - begin).count();
     }
 
-    auto insertionSort(std::deque<T>& arr) {
+    auto insertionSort(std::deque<T> &arr) {
         auto begin = high_resolution_clock::now();
         for (size_t i = 1; i < arr.size(); ++i) {
             T key = arr[i];
@@ -146,105 +58,134 @@ public:
             arr[j + 1] = key;
         }
         auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
+        return duration_cast<microseconds>(end - begin).count();
     }
 
-    auto introSort(std::deque<T>& arr) {
+    auto introSort(std::deque<T> &arr) {
         auto begin = high_resolution_clock::now();
         std::sort(arr.begin(), arr.end());
         auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
+        return duration_cast<microseconds>(end - begin).count();
     }
 
-    auto heapSort(std::deque<T>& arr) {
+    auto heapSort(std::deque<T> &arr) {
         auto begin = high_resolution_clock::now();
         std::make_heap(arr.begin(), arr.end());
         std::sort_heap(arr.begin(), arr.end());
         auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
+        return duration_cast<microseconds>(end - begin).count();
     }
 
-    auto mergeSort(std::deque<T>& arr) {
-        auto begin = high_resolution_clock::now();
-        std::stable_sort(arr.begin(), arr.end());
-        auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end - begin);
-        return duration.count();
-    }
+    void merge(std::deque<T> &array, int const left, int const mid, int const right) {
+        int const subArrayOne = mid - left + 1;
+        int const subArrayTwo = right - mid;
 
-    void whichIsBestSort(std::deque<T> arr) {
-        std::deque<T> arr_copy;
+        std::deque<T> leftArray(subArrayOne);
+        std::deque<T> rightArray(subArrayTwo);
 
-        arr_copy = arr;
-        auto bubble = bubbleSort(arr_copy);
-        
-        arr_copy = arr;
-        auto selection = selectionSort(arr_copy);
-        
-        arr_copy = arr;
-        auto insertion = insertionSort(arr_copy);
-        
-        arr_copy = arr;
-        auto heap = heapSort(arr_copy);
-        
-        arr_copy = arr;
-        auto intro = introSort(arr_copy);
-        
-        arr_copy = arr;
-        auto merge = mergeSort(arr_copy);
-        arr_copy = arr;
-        auto stable = stableSort(arr_copy);
+        for (auto i = 0; i < subArrayOne; i++)
+            leftArray[i] = array[left + i];
+        for (auto j = 0; j < subArrayTwo; j++)
+            rightArray[j] = array[mid + 1 + j];
 
-        std::cout << "Starting Time Analysis of different algo ....." << std::endl;
-        std::cout << "Bubble Sort: " << bubble << " microseconds" << std::endl;
-        std::cout << "Selection Sort: " << selection << " microseconds" << std::endl;
-        std::cout << "Insertion Sort: " << insertion << " microseconds" << std::endl;
-        std::cout << "Heap Sort: " << heap << " microseconds" << std::endl;
-        std::cout << "Intro Sort: " << intro << " microseconds" << std::endl;
-        std::cout << "Merge Sort: " << merge << " microseconds" << std::endl;
-        std::cout << "Stable Sort: " << stable << " microseconds" << std::endl;
-        std::cout << "====================================" << std::endl;
+        int indexOfSubArrayOne = 0, indexOfSubArrayTwo = 0;
+        int indexOfMergedArray = left;
 
-        if (bubble < selection && bubble < insertion && bubble < heap && bubble < merge && bubble < intro && bubble < stable) {
-            std::cout << "Bubble Sort is the best" << std::endl;
-        } else if (selection < bubble && selection < insertion && selection < heap && selection < merge && selection < intro && selection < stable) {
-            std::cout << "Selection Sort is the best" << std::endl;
-        } else if (insertion < bubble && insertion < selection && insertion < heap && insertion < merge && insertion < intro && insertion < stable) {
-            std::cout << "Insertion Sort is the best" << std::endl;
-        } else if (heap < bubble && heap < selection && heap < insertion && heap < merge && heap < intro && heap < stable) {
-            std::cout << "Heap Sort is the best" << std::endl;
-        } else if (merge < bubble && merge < selection && merge < insertion && merge < heap && merge < intro && merge < stable) {
-            std::cout << "Merge Sort is the best" << std::endl;
-        } else if (intro < bubble && intro < selection && intro < insertion && intro < heap && intro < merge && intro < stable) {
-            std::cout << "Intro Sort is the best" << std::endl;
-        } else {
-            std::cout << "***Stable Sort is the best for this case because it is a hybrid sorting algorithm that provides both fast average performance and optimal worst-case performance.***" << std::endl;
-            std::cout << "====================================" << std::endl;
+        while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo) {
+            if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo]) {
+                array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
+                indexOfSubArrayOne++;
+            } else {
+                array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
+                indexOfSubArrayTwo++;
+            }
+            indexOfMergedArray++;
+        }
+
+        while (indexOfSubArrayOne < subArrayOne) {
+            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
+            indexOfSubArrayOne++;
+            indexOfMergedArray++;
+        }
+
+        while (indexOfSubArrayTwo < subArrayTwo) {
+            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
+            indexOfSubArrayTwo++;
+            indexOfMergedArray++;
         }
     }
 
-    void print(const std::deque<T>& arr) const {
-        for (const auto& elem : arr) {
-            std::cout << elem << " ";
+    long long mergeSort(std::deque<T> &array, int const begin, int const end) {
+        if (begin >= end) {
+            return 0;
         }
-        std::cout << std::endl;
+
+        auto be = high_resolution_clock::now();
+        int mid = begin + (end - begin) / 2;
+        mergeSort(array, begin, mid);
+        mergeSort(array, mid + 1, end);
+        merge(array, begin, mid, end);
+        auto en = high_resolution_clock::now();
+        return duration_cast<microseconds>(en - be).count();
+    }
+
+    void measureSortingTimes(const std::deque<T> &arr, std::vector<std::vector<long long>> &results) {
+        std::deque<T> arr_copy = arr;
+
+        results[0].push_back(bubbleSort(arr_copy));
+        arr_copy = arr;
+        results[1].push_back(selectionSort(arr_copy));
+        arr_copy = arr;
+        results[2].push_back(insertionSort(arr_copy));
+        arr_copy = arr;
+        results[3].push_back(heapSort(arr_copy));
+        arr_copy = arr;
+        results[4].push_back(introSort(arr_copy));
+        arr_copy = arr;
+        results[5].push_back(mergeSort(arr_copy, 0, arr_copy.size() - 1));
+        arr_copy = arr;
+        results[6].push_back(stableSort(arr_copy));
+    }
+
+    void printTable(const std::vector<std::vector<long long>> &results, const std::vector<std::string> &names) {
+        cout << setw(15) << "Algorithm" << " | ";
+        for (size_t i = 0; i < results[0].size(); ++i) {
+            cout << setw(10) << "Run " << i + 1 << " | ";
+        }
+        cout << endl;
+
+        for (size_t i = 0; i < results.size(); ++i) {
+            cout << setw(15) << names[i] << " | ";
+            for (const auto &time : results[i]) {
+                cout << setw(10) << time << " | ";
+            }
+            cout << endl;
+        }
     }
 };
 
 int main() {
     std::deque<int> arr = {5, 4, 3, 2, 1, 5, 6, 7, 8, 9, 2, 1, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41};
-    SortAlgorithm<int> s;
     std::deque<std::string> arr2 = {"hello", "world", "this", "is", "a", "test", "for", "string", "sorting", "algorithm", "using", "c++", "stl", "library", "and", "templates", "and", "classes"};
+
+    SortAlgorithm<int> s;
     SortAlgorithm<std::string> s2;
 
+    std::vector<std::vector<long long>> intResults(7);
+    std::vector<std::vector<long long>> stringResults(7);
+    std::vector<std::string> algorithmNames = {"Bubble Sort", "Selection Sort", "Insertion Sort", "Heap Sort", "Intro Sort", "Merge Sort", "Stable Sort"};
+
     std::cout << "Integers sorting:" << std::endl;
-    s.whichIsBestSort(arr);
+    for (int i = 0; i < 15; ++i) {
+        s.measureSortingTimes(arr, intResults);
+    }
+    s.printTable(intResults, algorithmNames);
 
     std::cout << "Strings sorting:" << std::endl;
-    s2.whichIsBestSort(arr2);
+    for (int i = 0; i < 15; ++i) {
+        s2.measureSortingTimes(arr2, stringResults);
+    }
+    s2.printTable(stringResults, algorithmNames);
 
     return 0;
 }
