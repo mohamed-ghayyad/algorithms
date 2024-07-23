@@ -24,8 +24,8 @@ This C++ application provides implementations of various sorting algorithms and 
 
 ```sh
 git clone https://github.com/yourusername/algorithms.git
-```cd algorithms
-
+cd algorithms
+```
 ### Compile the Code
 Use a C++ compiler like g++:
 
